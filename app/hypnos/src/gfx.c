@@ -47,13 +47,13 @@ void gfx_init(void)
 	lv_obj_t *img_minute = lv_img_create(lv_scr_act(), NULL);
 	lv_img_set_src(img_minute, &bitmap1);
 	lv_obj_align( img_minute, img_bin, LV_ALIGN_CENTER, 0, 0);
-	lv_img_set_pivot(img_minute, 120,120);
+	lv_img_set_pivot(img_minute, 3, 90);
         lv_img_set_angle( img_minute, 450);
 	
 	lv_obj_t *img_hour = lv_img_create(lv_scr_act(), NULL);
 	lv_img_set_src(img_hour, &bitmap2);
 	lv_obj_align( img_hour, img_bin, LV_ALIGN_CENTER, 0, 0);
-	lv_img_set_pivot(img_hour, 120, 120);
+	lv_img_set_pivot(img_hour, 4, 60);
         lv_img_set_angle( img_hour, 3150);
 	
 	/* Create styles for time, date and the rest */
