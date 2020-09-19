@@ -29,9 +29,9 @@
 #define DISPLAY_TIMEOUT K_SECONDS(5)
 #ifdef CONFIG_BOOTLOADER_MCUBOOT
 /* The watchdog released by the PineTime bootloader v5.0.0-rc1
- * will try to bite every 7 seconds. (now 119 sec)
+ * will try to bite every 7 seconds. (now 30 sec)
  */
-#define WDT_REFRESH 120
+#define WDT_REFRESH 30
 #endif
 /* ********** ******* ********** */
 
