@@ -13,6 +13,8 @@
 /* ********** Macros and constants ********** */
 #define LV_IMG_DECLARE(var_name) extern const lv_img_dsc_t var_name;
 LV_IMG_DECLARE(brothers);
+LV_IMG_DECLARE(bitmap1);
+LV_IMG_DECLARE(bitmap2);
 
 LV_FONT_DECLARE(rubik_regular_52);
 LV_FONT_DECLARE(rubik_regular_34);
@@ -41,6 +43,17 @@ void gfx_init(void)
 	lv_obj_t *img_bin = lv_img_create(lv_scr_act(), NULL);
 	lv_img_set_src(img_bin, &brothers);
 
+	/*declare clock needles*/
+	lv_obj_t *img_minute = lv_img_create(lv_scr_act(), NULL);
+	lv_img_set_src(img_minute, &bitmap1);
+	lv_obj_align( img_minute, img_bin, LV_ALIGN_CENTER, 0, 0);
+        lv_img_set_angle( img_minute, 450);
+	
+	lv_obj_t *img_hour = lv_img_create(lv_scr_act(), NULL);
+	lv_img_set_src(img_hour, &bitmap2);
+	lv_obj_align( img_hour, img_bin, LV_ALIGN_CENTER, 0, 0);
+        lv_img_set_angle( img_hour, 3150);
+	
 	/* Create styles for time, date and the rest */
 	lv_style_init(&style);
 	lv_style_init(&style_time);
