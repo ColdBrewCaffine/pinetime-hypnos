@@ -83,14 +83,14 @@ void event_handler_init()
 			WDT_REFRESH);
 		k_timer_init(&watchdog_refresh_timer, watchdog_refresh_isr,
 			     NULL);
-//		k_timer_start(&watchdog_refresh_timer, K_NO_WAIT,
-//			      K_SECONDS(WDT_REFRESH));
+		k_timer_start(&watchdog_refresh_timer, K_NO_WAIT,
+			      K_SECONDS(WDT_REFRESH));
 	} else {
 		LOG_INF("No watchdog detected.");
 	}
 #endif
 	k_timer_init(&display_off_timer, display_off_isr, NULL);
-//	k_timer_start(&display_off_timer, DISPLAY_TIMEOUT, K_NO_WAIT);
+	k_timer_start(&display_off_timer, DISPLAY_TIMEOUT, K_NO_WAIT);
 
 	/* Special cases */
 	/* Get battery charging status */
@@ -130,7 +130,7 @@ void button_pressed_isr(const struct device *gpiobtn, struct gpio_callback *cb, 
 {
 	display_wake_up();
 	backlight_enable(true);
-//	k_timer_start(&display_off_timer, DISPLAY_TIMEOUT, K_NO_WAIT);
+	k_timer_start(&display_off_timer, DISPLAY_TIMEOUT, K_NO_WAIT);
 
 	gui_handle_button_event();
 }
@@ -143,7 +143,7 @@ void touch_tap_isr(const struct device *touch_dev, struct sensor_trigger *tap)
 
 	display_wake_up();
 	backlight_enable(true);
-//	k_timer_start(&display_off_timer, DISPLAY_TIMEOUT, K_NO_WAIT);
+	k_timer_start(&display_off_timer, DISPLAY_TIMEOUT, K_NO_WAIT);
 
 	struct sensor_value gesture_val;
 	sensor_channel_get(touch_dev, CST816S_CHAN_GESTURE, &gesture_val);
